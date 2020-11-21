@@ -1,5 +1,5 @@
 
-def enhance(thing) -> EnhancedDict:
+def enhance(thing):
     """Used to recursively convert regular containers into EnhancedDicts"""
 
     if isinstance(thing, dict):  # Convert dict to dot-accessible EnhancedDict
@@ -29,8 +29,20 @@ class EnhancedDict(dict):
     __getattr__ = dict.__getitem__
     __delattr__ = dict.__delitem__
 
-    def __setattr__(self, name, value):  # Add dot-access EnhancedDict.a = 'Gt'
+    def __setattr__(self, name, value):  # Add dotaccess(EnhancedDict.a = 'Gt')
         return dict.__setitem__(self, name, enhance(value))
 
     def copy(self):  # Deep copys instead of default shallow copy
         return enhance(dict.copy(self))
+
+
+def test():  # Need to expand testing more
+    """Basic testing."""
+    test0 = {'test': True}
+    test = EnhancedDict(test0)
+    assert test.test is True
+    test.test = False
+    assert test.test is False
+
+
+# test()
