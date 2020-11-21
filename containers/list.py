@@ -36,6 +36,6 @@ class EnhancedList(list):
     indexes = indices  # for degenerates who prefer .indexes() over .indices()
 
     def copy(self):
-       """Returns a deep copy of the list"""
+        """Returns a deep copy of the list"""
 
-       return deepcopy(self)
+        return deepcopy(self)
