@@ -1,8 +1,8 @@
 from copy import deepcopy
 
 class EnhancedList(list):
-    def __init__(self):
-        super().__init__()
+    def __init__(self, _list=None):
+        super().__init__([] if _list is None else _list)
 
     def append(self, item):
         """Appends and returns item."""
