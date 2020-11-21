@@ -5,7 +5,7 @@ def enhance(thing) -> EnhancedDict:
     if isinstance(thing, dict):  # Convert dict to dot-accessible EnhancedDict
         return EnhancedDict(thing)
 
-    # Adds support for iterables which are subclasses or instances of lists and tuples
+    # Adds support for iterables that are subclasses/instances of lists/tuples
     if isinstance(thing, (list, tuple)):
         return type(thing)(enhance(item) for item in thing)
 
