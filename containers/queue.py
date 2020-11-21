@@ -30,3 +30,19 @@ class Queue():
         """Returns length of queue"""
 
         return len(self._items)
+
+
+def test():
+    """Basic testing."""
+    queue = Queue()
+    assert queue.is_empty() is True
+    try:
+        queue.peek()
+        assert False
+    except IndexError:
+        assert True
+    queue.enqueue(69)
+    queue.enqueue(666)
+    assert queue.peek() == 69
+    assert queue.dequeue() == 69
+    assert queue.peek() == 666
