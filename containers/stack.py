@@ -1,26 +1,47 @@
+class StackOverflowError(BaseException):
+    pass
+
+
 class Stack:
     """LIFO(Last In First Out) data structure. Implemented with lists."""
 
-    def __init__(self, _list=None):
+    def __init__(self, limit: int = 10):
+        self.stack = []
+        self.limit = limit
 
-        self._items = ([] if _list is None else _list)
-
-    def empty(self):
-        """Returns whether or not the stack is empty"""
-        return self._items == []
-
-    def size(self):
-        """Returns the total amount of items in stack."""
-        return len(self._items)
-
-    def top(self):
-        """Returns the value of the top item in the stack without removing."""
-        return self._items[-1]
-
-    def push(self, item):
-        """Adds an item to the stack."""
-        return self._items.append(item)
+    def push(self, data):
+        """ Push element to top of stack."""
+        if len(self.stack) >= self.limit:
+            raise StackOverflowError
+        self.stack.append(data)
 
     def pop(self):
-        """Removes the top item in the stack."""
-        return self._items.pop()
+        """ Pop an element off of the top of the stack."""
+        return self.stack.pop()
+
+    def peek(self):
+        """ Peek at the top-most element of the stack."""
+        return self.stack[-1]
+
+    def is_empty(self) -> bool:
+        """ Check if a stack is empty."""
+        return not bool(self.stack)
+
+    def is_full(self) -> bool:
+        return self.size() == self.limit
+
+    def size(self) -> int:
+        """ Return the size of the stack."""
+        return len(self.stack)
+
+    def __contains__(self, item) -> bool:
+        """Check if item is in stack"""
+        return item in self.stack
+
+
+def test():
+    """testing stack, what else?"""
+    # Only basic texting here atm, feel free to improve
+    stack = Stack()  # Defaults to 10
+    assert stack.is_empty() is True
+    assert stack.is_full() is False
