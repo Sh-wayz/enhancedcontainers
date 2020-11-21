@@ -74,4 +74,4 @@ def test():
     assert stack.__contains__('TEST') is False
 
 
-test()
+# test()
