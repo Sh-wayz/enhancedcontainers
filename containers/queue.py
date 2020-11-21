@@ -2,7 +2,7 @@ class Queue():
 
     """FIFO data structure. Implemented with a list."""
 
-    def __init__(self, _list=None):
+    def __init__(self, _list: list = None):
 
         self._items = ([] if _list is None else _list)
 
@@ -46,3 +46,11 @@ def test():
     assert queue.peek() == 69
     assert queue.dequeue() == 69
     assert queue.peek() == 666
+    assert queue.size() == 1
+    assert queue.is_empty() is False
+    assert queue.dequeue() == 666
+    assert queue.size() == 0
+    assert queue.is_empty() is True
+
+
+# test()
