@@ -40,7 +40,7 @@ class Stack:
 
 
 def test():
-    """testing stack, what else?"""
+    """Testing stack, what else?"""
     # Only basic texting here atm, feel free to improve
     stack = Stack()  # Defaults to 10
     assert stack.is_empty() is True
