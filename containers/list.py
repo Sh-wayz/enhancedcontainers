@@ -1,6 +1,10 @@
 from copy import deepcopy
 
 class EnhancedList(list):
+    """List subclass with the following alterations:
+        - .append() returns the appended value.
+        - .indices() returns all indices of the provided value
+        - .copy() is a deep copy instead of shallow."""
     def __init__(self, _list=None):
         super().__init__([] if _list is None else _list)
 

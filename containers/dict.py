@@ -13,7 +13,9 @@ def enhance(con):
 
 
 class EnhancedDict(dict):
-    """dict subclass required for dot-access"""
+    """Dict subclass with the following changes:
+        - dot-access | dict values are accessible via dict.key
+        - .copy() returns a deep copy rather than shallow"""
 
     def __init__(self, _dict=None):
         if _dict is None:  # Allow for creating a new EnhancedDict via EnhancedDict()
