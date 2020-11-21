@@ -6,7 +6,7 @@ class Queue():
 
         self._items = ([] if _list is None else _list)
 
-    def is_empty(self):
+    def is_empty(self) -> bool:
         """Returns a boolean specifying whether or not the queue is empty"""
 
         return self._items == []
@@ -26,7 +26,7 @@ class Queue():
 
         return self._items[0]
 
-    def size(self):
+    def size(self) -> int:
         """Returns length of queue"""
 
         return len(self._items)
