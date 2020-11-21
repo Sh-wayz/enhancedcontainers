@@ -1,6 +1,6 @@
 class Queue():
 
-    """FIFO data structure. Implemented with a list."""
+    """FIFO data structure."""
 
     def __init__(self, _list: list = None):
 
