@@ -41,7 +41,7 @@ class Stack:
 
 def test():
     """Testing stack, what else?"""
-    # Only basic texting here atm, feel free to improve
+    # Only basic testing here atm, feel free to improve
     stack = Stack()  # Defaults to 10
     assert stack.is_empty() is True
     assert stack.is_full() is False
