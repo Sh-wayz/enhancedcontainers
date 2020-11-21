@@ -1,5 +1,5 @@
 
-def enhance(thing):
+def enhance(thing) -> EnhancedDict:
     """Used to recursively convert regular containers into EnhancedDicts"""
 
     if isinstance(thing, dict):  # Convert dict to dot-accessible EnhancedDict
