@@ -1,13 +1,13 @@
 
-def enhance(con):
+def enhance(thing):
     """Used to recursively convert regular containers into EnhancedDicts"""
 
-    if isinstance(com, dict):  # Convert dict to dot-accessible EnhancedDict
-        return EnhancedDict(con)
+    if isinstance(thing, dict):  # Convert dict to dot-accessible EnhancedDict
+        return EnhancedDict(thing)
 
-    # This adds support for iterables which are subclasses or instances of lists and tuples
+    # Adds support for iterables which are subclasses or instances of lists and tuples
     if isinstance(thing, (list, tuple)):
-        return type(thing)(classify(item) for item in thing)
+        return type(thing)(enhance(item) for item in thing)
 
     return thing
 
@@ -18,17 +18,17 @@ class EnhancedDict(dict):
         - .copy() returns a deep copy rather than shallow"""
 
     def __init__(self, _dict=None):
-        if _dict is None:  # Allow for creating a new EnhancedDict via EnhancedDict()
+        if _dict is None:  # Allows creating EnhancedDict via EnhancedDict()
             _dict = {}
 
-        dict.__init__(self, {k:classify(v) for (k, v) in _dict.items()})
+        dict.__init__(self, {k: enhance(v) for (k, v) in _dict.items()})
 
     # Override the attribute methods to add dot access
     __getattr__ = dict.__getitem__
     __delattr__ = dict.__delitem__
 
-    def __setattr__(self, name, value):  # Add dot-access EnhancedDict.a = 'something'
-        return dict.__setitem__(self, name, classify(value))
+    def __setattr__(self, name, value):  # Add dot-access EnhancedDict.a = 'Gt'
+        return dict.__setitem__(self, name, enhance(value))
 
-    def copy(self):  # Actually is a deep copy unlike the default shallow .copy()
-        return classify(dict.copy(self))
+    def copy(self):  # Deep copys instead of default shallow copy
+        return enhance(dict.copy(self))
