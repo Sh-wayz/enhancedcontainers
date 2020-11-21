@@ -39,3 +39,20 @@ class EnhancedList(list):
         """Returns a deep copy of the list"""
 
         return deepcopy(self)
+
+
+def test():
+    """Simple testing."""
+    list = ['1', '2', '2']
+    test = EnhancedList(list)
+    assert test.append('3') == '3'
+    assert test.indices('2') == [1, 2]
+    test2 = test.copy()
+    test2[0] = 'test'
+    if test[0] == 'test':
+        assert False
+    else:
+        assert True
+
+
+test()
