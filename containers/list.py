@@ -18,10 +18,10 @@ class EnhancedList(list):
         list.append(self, item)
         return item
 
-    def indices(self, value):
+    def indices(self, value) -> int:
         """Returns all the indices of a given value"""
 
-        def indices_gen():
+        def indices_gen() -> int:
             result = EnhancedList()
             offset = -1
             while True:
