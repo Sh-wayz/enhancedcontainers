@@ -1,4 +1,4 @@
-from containers import __version__
+from enhancedcontainers import __version__
 from setuptools import find_packages, setup
 
 
