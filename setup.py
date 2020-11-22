@@ -7,7 +7,7 @@ with open('README.md', 'r') as fh:
 
 setup(
     name='enhanced-containers',
-    packages=find_packages(include=['containers']),
+    packages=find_packages(include=['enhancedcontainers']),
     version=__version__,
     description='Enhanced types and data structures.',
     long_description=long_description,
