@@ -1,3 +1,4 @@
+# TODO: Add .__contains__()
 class Queue():
 
     """FIFO data structure."""
@@ -13,8 +14,8 @@ class Queue():
 
     def enqueue(self, item):
         """Adds an item to the queue."""
-
-        return self._items.append(item)
+        self._items.append(item)
+        return item
 
     def dequeue(self):
         """Remove an item from the queue."""
