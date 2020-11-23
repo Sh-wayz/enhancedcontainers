@@ -20,6 +20,7 @@ class ListTest(unittest.TestCase):
 
         def test_append(self):
             self.assertEqual(self.elist.append('test5'), 'test5'
-
-                             if __name__ == '__main__':
-                             unittest.main()
+                             def test_deep_copy(self):
+                             edict2=self.edict.copy()
+                             edict2.test="should not happen"
+                             self.assertNotEqual(edict2.test, self.edict.test)
