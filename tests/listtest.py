@@ -24,7 +24,8 @@ class ListTest(unittest.TestCase):
     def test_deep_copy(self):
         elist2 = self.elist.copy()
         elist2[0] = "should not happen"
-        self.assertNotEqual(elist2.[0], self.elist.test[0]
+        self.assertNotEqual(elist2[0], self.elist[0])
+
 
 if __name__ == '__main__':
     unittest.main()
