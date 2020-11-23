@@ -18,9 +18,13 @@ class ListTest(unittest.TestCase):
         elist2[0] = "test4"
         self.assertNotEqual(elist2[0], self.elist[0])
 
-        def test_append(self):
-            self.assertEqual(self.elist.append('test5'), 'test5'
-                             def test_deep_copy(self):
-                             edict2=self.edict.copy()
-                             edict2.test="should not happen"
-                             self.assertNotEqual(edict2.test, self.edict.test)
+    def test_append(self):
+        self.assertEqual(self.elist.append('test5'), 'test5')
+
+    def test_deep_copy(self):
+        elist2 = self.elist.copy()
+        elist2[0] = "should not happen"
+        self.assertNotEqual(elist2.[0], self.elist.test[0]
+
+if __name__ == '__main__':
+    unittest.main()
