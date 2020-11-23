@@ -21,11 +21,6 @@ class ListTest(unittest.TestCase):
     def test_append(self):
         self.assertEqual(self.elist.append('test5'), 'test5')
 
-    def test_deep_copy(self):
-        elist2 = self.elist.copy()
-        elist2[0] = "should not happen"
-        self.assertNotEqual(elist2[0], self.elist[0])
-
 
 if __name__ == '__main__':
     unittest.main()
