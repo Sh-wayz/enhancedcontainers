@@ -34,15 +34,3 @@ class EnhancedDict(dict):
 
     def copy(self):  # Deep copys instead of default shallow copy
         return enhance(dict.copy(self))
-
-
-def test():  # Need to expand testing more
-    """Basic testing."""
-    test0 = {'test': True}
-    test = EnhancedDict(test0)
-    assert test.test is True
-    test.test = False
-    assert test.test is False
-
-
-# test()
